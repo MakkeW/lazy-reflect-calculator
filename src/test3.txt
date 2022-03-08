@@ -1,0 +1,6 @@
+a!
+print a!
+pr1nt a1
+a_ add 10
+a adds 10
+a add t_

@@ -1,0 +1,4 @@
+a add 10
+b add 2
+a divide b
+print a
