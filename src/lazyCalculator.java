@@ -14,6 +14,11 @@ import java.util.stream.Collectors;
 public class lazyCalculator {
     static Set<Operation> ops;
 
+    /**
+     * Main driver for the calculator, can take a filename as input
+     * @param args Optional filename as input
+     * @throws IOException in case of IO error
+     */
     public static void main(String[] args) throws IOException {
         // write your code here
         BufferedReader reader;
@@ -93,6 +98,11 @@ public class lazyCalculator {
         }
     }
 
+
+    /**
+     * Fetches all operations defined in the package "operation.operations"
+     * @return A Set of all operations
+     */
     public static Set<Operation> getAllOperations() {
         String packageName = "operation.operations";
         InputStream stream = ClassLoader.getSystemClassLoader()
@@ -108,6 +118,9 @@ public class lazyCalculator {
         }
     }
 
+    /**
+     * Prints instructions for the user
+     */
     static void printHelp() {
 
         System.out.printf("""
@@ -131,10 +144,15 @@ public class lazyCalculator {
         }
     }
 
-    private static Operation getOperation(String className) {
+    /**
+     * Loads an operation with the given name
+     * @param operationName Name of the operation
+     * @return Returns a new instance of the given class/operation
+     */
+    private static Operation getOperation(String operationName) {
         try {
             Class<?> c1 = Class.forName("operation.operations" + "."
-                    + className.substring(0, className.lastIndexOf('.')));
+                    + operationName.substring(0, operationName.lastIndexOf('.')));
             return (Operation) c1.getDeclaredConstructor().newInstance();
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             return null;
