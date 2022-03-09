@@ -1,0 +1,7 @@
+a add 10
+a add b
+a add c
+b add d
+c add d
+d add 10
+print a
