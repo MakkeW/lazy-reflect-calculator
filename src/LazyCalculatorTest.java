@@ -6,7 +6,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class lazyCalculatorTest {
+class LazyCalculatorTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;

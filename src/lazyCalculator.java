@@ -71,6 +71,7 @@ public class lazyCalculator {
 
                     Operation op = getOperation(tokens[1] + ".class");
                     if (op == null) {
+                        System.err.printf("'%s' is not a operation %n", tokens[1]);
                         continue;
                     }
 
@@ -136,8 +137,7 @@ public class lazyCalculator {
                     + className.substring(0, className.lastIndexOf('.')));
             return (Operation) c1.getDeclaredConstructor().newInstance();
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            System.err.printf("'%s' is not a operation %n", className);
+            return null;
         }
-        return null;
     }
 }
